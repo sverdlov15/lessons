@@ -1,0 +1,60 @@
+verdkov15@sverdlov:~$ python3
+Python 3.9.7 (default, Sep 10 2021, 14:59:43) 
+[GCC 11.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> my_list = [1, 1.0, 2, 2, 5.0, "python', "python3", "python3"]
+  File "<stdin>", line 1
+    my_list = [1, 1.0, 2, 2, 5.0, "python', "python3", "python3"]
+                                             ^
+SyntaxError: invalid syntax
+>>> my_list = [1, 1.0, 2, 2, 5.0, "python", "python3", "python3"]
+>>> set = my_list
+>>> set
+[1, 1.0, 2, 2, 5.0, 'python', 'python3', 'python3']
+>>> 
+>>> len(set)
+8
+>>> size = 13
+>>> [size*4, size**2, size*size, (suze**2*2)**0,5]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'suze' is not defined
+>>> [size*4, size**2, size*size, (size**2*2)**0,5]
+[52, 169, 169, 1, 5]
+>>> from math impotr sqrt
+  File "<stdin>", line 1
+    from math impotr sqrt
+              ^
+SyntaxError: invalid syntax
+>>> from math import sqrt
+>>> [size*4, size**2, size*size, (size**2*2)**0,5]
+[52, 169, 169, 1, 5]
+>>> from math import sqrt
+>>> [size*4, size**2, size*size, (size*]
+  File "<stdin>", line 1
+    [size*4, size**2, size*size, (size*]
+                                       ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '('
+>>> [size*4, size**2, size*size, sqrt(size**2*2)]
+[52, 169, 169, 18.384776310850235]
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>> ls
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'ls' is not defined
+>>> cd projects/lessons
+  File "<stdin>", line 1
+    cd projects/lessons
+       ^
+SyntaxError: invalid syntax
+>>> exit()
+sverdkov15@sverdlov:~$ cd projects/lessons/
+sverdkov15@sverdlov:~/projects/lessons$ mkdir lessons_03
+sverdkov15@sverdlov:~/projects/lessons$ git init
+Переинициализирован существующий репозиторий Git в /home/sverdkov15/projects/lessons/.git/
+sverdkov15@sverdlov:~/projects/lessons$ touch readmi.txt
+sverdkov15@sverdlov:~/projects/lessons$ git add readmi.txt
+sverdkov15@sverdlov:~/projects/lessons$ 
+
+
