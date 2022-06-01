@@ -11,3 +11,7 @@ for i in range(1):
     if palidrom[i] == palidrom[-1-i]:
         print("палидром")
 
+
+user_string = input("Enter")
+print("Yes" if user_string == user_string[::-1] else "No")
+
