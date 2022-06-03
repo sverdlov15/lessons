@@ -11,3 +11,13 @@ three_args(var1='Python', var3=3)
 three_args(var1='Python', var2=3, var3=9)
 
 
+#второй вариант
+def three_args(*args, **kwargs):
+    result = []
+    for key, value in kwargs.items():
+        if value is not None:
+            result.append(f"{key} = {value}")
+    print(f"Переданы аргументы: {', '.join(result)}")
+
+
+three_args(var1=2, var3=10)
