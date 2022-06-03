@@ -4,24 +4,3 @@
 колько всего нужно закупить парт чтобы их хватило на всех учеников? Программа получает
 на вход три натуральных числа: количество учащихся в каждом из трех классов.'''
 
-
-lst = []
-
-for word in text.lower().split():
-    if not word in lst_no:
-        _word = word
-        if word[-1] in lst_no:
-            _word = _word[:-1]
-        if word[0] in lst_no:
-            _word = _word[1:]
-        lst.append(_word)
-
-_dict = dict()
-for word in lst:
-    _dict[word] = _dict.get(word, 0) + 1
-
-# сортируем словарь посредством формирования списка (значение, ключ)
-_list = []
-for key, value in _dict.items():
-    _list.append((value, key))
-    _list.sort(reverse=True)
