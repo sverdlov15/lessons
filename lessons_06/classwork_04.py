@@ -4,34 +4,37 @@
 
 from classwork_03 import get_random_card
 
-my_dict = {"J":2, "D":3}
+my_dict = {
+    "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "J": 2, "D": 3, "K": 4, "A": 1
+}
 
-def now_naminal():
-    return my_dict[naminal]
+
+def nominal_to_value(nominal):
+    return my_dict[nominal]
+
 
 n, _ = get_random_card()
-value = naminal_to_value(n)
+value = nominal_to_value(n)
 
 current_sum = value
- while True:
-     choice = input(" asdfg [y/n]: ")
-     if choice == "n":
-         break
+while True:
+    choice = input("Достать следующую карту [Y/n]: ")
+    if choice == "n":
+        break
 
     n, _ = get_random_card()
-    value = naminal_to_value(n)
+    value = nominal_to_value(n)
     current_sum += value
 
     if current_sum > 21:
-        print("lose")
+        print("Game over, ты проиграл, твоя текущая сумма: ", current_sum)
         break
 
     if current_sum == 21:
-        print("win")
+        print("Ты выйграл")
         break
 
-    if current_sum == 21:
-        print("win")
-        break
+    if current_sum < 21:
+        print("Твоя текущая сумма: ", current_sum)
 
 

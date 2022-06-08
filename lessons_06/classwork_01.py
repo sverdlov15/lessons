@@ -3,19 +3,27 @@
 где слово - это входной параметр, вторая функция - с русского на английский.
 '''
 
-d = {"apple":"яблоко",
-     "green":"зелёный",
-     "fly":"летать"
+my_dict = {
+    "apple": "яблоко",
+    "green": "зеленый",
+    "fly": "летать",
+}
+
 
 def eng_to_rus(word):
-    return d[word]
+    return my_dict[word]
 
 
 def rus_to_eng(word):
-    for key, value in d.items():
-        if value == word:
-            return key
+    new_dict = {
+        value: key
+        for key, value in my_dict.items()
+    }
+    return new_dict[word]
 
-print(end_to_rus("apple"))
-print(end_to_rus("fly"))
-print(end_to_rus("green"))
+
+print(eng_to_rus("apple"))
+print(eng_to_rus("fly"))
+
+print(rus_to_eng("яблоко"))
+print(rus_to_eng("зеленый"))

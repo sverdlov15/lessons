@@ -5,15 +5,25 @@
 
 import csv
 
-with open("abs.csv", "r") as file:
-         my_dict = {row[0]: row[1] for row in csv.reader(file)}
+
+with open("dictionary.csv", "r") as file:
+    my_dict = {row[0]: row[1] for row in csv.reader(file)}
 
 
+def eng_to_rus(word):
+    return my_dict[word]
 
 
+def rus_to_eng(word):
+    new_dict = {
+        value: key
+        for key, value in my_dict.items()
+    }
+    return new_dict[word]
 
-  print(line)
 
-"apple":"яблоко"
-"green":"зелёный",
- "fly":"летать"
+print(eng_to_rus("apple"))
+print(eng_to_rus("fly"))
+
+print(rus_to_eng("яблоко"))
+print(rus_to_eng("зеленый"))
