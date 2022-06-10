@@ -1,21 +1,22 @@
 '''Ввести с клавиатуры целое число n. Получить сумму кубов всех целых чисел от 1 до n
 (включая n) используя цикл while.'''
 
-n = int(input("write:"))
-result = 0
-index = 0
+"""
+Написать программу, которая будет выводить на
+экран случайные числа от 1 до 10 до тех пор, пока не выпадет 7.
+"""
 
-for item in range(1, n+1):
-    result += item**3
-    pass
+import random
 
-while index <= n:
-    index += 1
-    result += index**3
 
-while n> 0:
-    result += n**3
-    n-=1
+x = random.randint(1, 10)
+while x != 7:
+    print(x)
+    x = random.randint(1, 10)
 
-for item in range (1, n+1):
-    result += item**3
+
+while True:
+    x = random.randint(1, 10)
+    if x == 7:
+        break
+    print(x)

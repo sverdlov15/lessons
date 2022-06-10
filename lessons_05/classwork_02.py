@@ -1,12 +1,21 @@
-'''Написать функцию, которая получает на вход имя и выводит строку вида: f"Hello, {name}".
-Создать список из 5 имен.
-Вызвать функцию для каждого элемента списка в цикле.'''
+"""
+Создать функцию, которая принимает на вход неопределенное количество аргументов
+и возвращает их сумму и максимальное из них.
+"""
 
-def format_string(name):
-    print(f"Hello, {name}")
 
-my_names = ["wer", "ter", "olga"]
+def sum_and_max(*args):
+    result_sum = 0
+    max_item = args[0]
+    for item in args:
+        result_sum += item
+        if item > max_item:
+            max_item = item
+    return result_sum, max_item
 
-for in items my_names:
-    format_string(name)
+
+my_list = [1, 5, 16, 3, 66, -20, 5]
+
+print(sum_and_max(*my_list))
+print(sum_and_max(1, 5, 16, 3, 66, -20, 5))
 

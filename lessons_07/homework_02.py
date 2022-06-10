@@ -1,15 +1,33 @@
-'''Дан список стран и городов каждой страны, где ключи это названия стран,
-а значения - списки городов в этих странах. Написать функцию которая осуществляет поиск по
-городу и возвращает страну. Оформить в виде программы, которая считывает название города и
-выводит на печать страну.'''
+"""
+Дан список стран и городов каждой страны, где ключи это названия стран, а значения - списки городов в этих странах.
+Написать функцию которая осуществляет поиск по городу и возвращает страну. Оформить в виде программы, которая считывает
+название города и выводит на печать страну.
+"""
+from typing import Optional
 
-capital = {"Беларусь":"Минск", "Беларусь": "Гродно", "Польша":"Гданьск"}
+CITY_TO_COUNTRY_MAP = {
+    "Belarus": ["Minsk", "Vitebsk", "Grodno"],
+    "Russia": ["Moskow", "Saint-Petersburg", "Smolensk"],
+    "Ukraine": ["Kiev", "Chernigov", "Sumy"]
+}
 
-for i in range(int(input())):
-    state, *cities = input().split()
-    for city in cities:
-        capital[city] = state
 
-for i in range(int(input())):
-    print(capital[input()])
+def find_country(city: str) -> Optional[str]:
+    for country, cities in CITY_TO_COUNTRY_MAP.items():
+        if city in cities:
+            return country
+
+
+def main():
+    """Основная программа."""
+    city = input("Enter city name: ")
+    country = find_country(city)
+    if country is not None:
+        print(f"{city} is a part of {country}")
+    else:
+        print(f"Can't find a country for {city}")
+
+
+if __name__ == "__main__":
+    main()
 

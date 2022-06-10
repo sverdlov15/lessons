@@ -1,23 +1,16 @@
-'''Создайте функцию three_args(), которая принимает 1, 2 или 3 ключевых параметра.
-В результате ее работы на печать выводятся значения переданных переменных, но только если они не равны None.
-Получим, например, следующее сообщение: Переданы аргументы: var1 = 2, var3 = 10.'''
-
-def three_args(*, var1, var2=None, var3=None):
-    arguments = ', '.join([f'{arg[0]} = {str(arg[1])}' for arg in locals().items() if arg[1] is not None])
-    print(f'Переданы аргументы: {arguments}')
-
-three_args(var1=22)
-three_args(var1='Python', var3=3)
-three_args(var1='Python', var2=3, var3=9)
+"""
+Написать функцию, которая используя модуль requests скачивает файл и сохраняет его на файловой системе, функция имеет
+два параметра: ссылка на файл и имя на файловой системе. В качестве примера ссылки на файл можно использовать лицензию
+из ГитХаба из вашего репозитория: https://raw.githubusercontent.com/manti-by/lessons/master/LICENSE
+"""
+import requests
 
 
-#второй вариант
-def three_args(*args, **kwargs):
-    result = []
-    for key, value in kwargs.items():
-        if value is not None:
-            result.append(f"{key} = {value}")
-    print(f"Переданы аргументы: {', '.join(result)}")
+def download_file(link, name):
+    r = requests.get(link)
+    open(name, "wb").write(r.content)
 
 
-three_args(var1=2, var3=10)
+download_file(
+    "https://raw.githubusercontent.com/manti-by/lessons/master/LICENSE", "LICENSE"
+)
