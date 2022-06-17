@@ -4,3 +4,18 @@
 минимальное число перекладываний.
 Необходимо написать программу, которая для данного числа дисков n печатает последовательность перекладываний, необходимую
 для решения головоломки.'''
+
+"""количество пирамид"""
+
+x = 7
+
+""""""
+
+def tower (x, number : int, receiver : int, storage : int):
+    if x <= 0:
+        return
+    tower(x-1, number, storage, receiver)
+    print("Disk", x, " : ", number, "-->", receiver)
+    tower(x-1, storage, receiver, number)
+
+tower(x, "1", "2", "3")
