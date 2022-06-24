@@ -1,26 +1,25 @@
-"""
-Создать таблицу продуктов. Атрибуты продукта: id, название, цена, количество, комментарий.
+'''1.Создать таблицу продуктов. Атрибуты продукта: id, название, цена, количество, комментарий.
 Реализовать следующие функции для продуктов: создание, чтение, обновление по id, удаление по id.
-"""
+   2.Создать таблицу покупок. Атрибуты: id, ссылка на пользователя, ссылка на продукт, количество.
+Реализовать покупку продукта, вывод всех покупок пользователя, фильтрацию по произвольным параметрам.
+   3.Создать программу с пользовательским интерфейсом позволяющим выбирать определенную функцию и вводить необходимые данные.
+'''
+from pathlib import Path
+from sqlalchemy import create_engine
+from sqlalchemy.engine import Engine
+from sqlalchemy_utils import create_database, database_exists
 
-import sqlite3
+DB_PATH = Path(__file__).resolve().parent / "my_database.sqlite3"
+DB_ECHO = True
 
 
-def create_product_table(database_name: str):
-    with sqlite3.connect("my_databas.sqlite3") as session:
-        cursor = session.cursor()
-        cursor.execute(
-            """
-            CREATE TABLE IF NOT EXISTS product (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name VARCHAR,
-                price FLOAT,
-                quantity INTEGER,
-                comment TEXT
-            );
-            """
-        )
-        session.commit()
+def setup_db_engine() -> Engine:
+    return create_engine(f"sqlite:////{DB_PATH}", echo=DB_ECHO)
+
+
+def create_database_if_not_exists(engine: Engine):
+    if not database_exists(engine.url):
+        create_database(engine.url)
 
 
 def get_products(database_name: str):

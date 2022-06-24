@@ -1,7 +1,3 @@
-"""
-Создать программу с пользовательским интерфейсом позволяющим выбирать определенную функцию и вводить необходимые данные.
-"""
-
 from homework_01 import create_product_table, get_products, create_product, update_product, delete_product
 
 DB_NAME = "my_database.sqlite3"
@@ -49,5 +45,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
